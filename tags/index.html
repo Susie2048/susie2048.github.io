@@ -369,21 +369,27 @@
     
       <div class="col-lg-7 mx-auto nopadding-x-md">
         <div class="container custom mx-auto">
-          <div id="golden-retriever" style="position: fixed; bottom: 30px; left: -200px; width: 120px; z-index: 999; pointer-events: none;">
-  <img src="/img/doggy.gif" srcset="/img/loading.gif" lazyload style="width: 100%;">
-</div>
+          <style>
+  /* 定义狗狗跑步的魔法轨道 */
+  @keyframes dogRunLoop {
+    0% { left: -300px; }   /* 从屏幕左侧外开始 */
+    100% { left: 110%; }   /* 跑到屏幕右侧外结束 */
+  }
 
-<script>
-  window.addEventListener('load', function() {
-    setTimeout(function() {
-      var dog = document.getElementById('golden-retriever');
-      if (dog) {
-        dog.style.transition = 'left 12s linear'; 
-        dog.style.left = '100%';
-      }
-    }, 3000); 
-  });
-</script>
+  #golden-retriever {
+    position: fixed;
+    bottom: 30px;          /* 距离底部的高度 */
+    width: 250px;          /* 【在这里改大小】250px 已经挺大了哦 */
+    z-index: 9999;
+    pointer-events: none;
+    /* 重点：infinite 代表无限循环，12s 代表跑一趟的时间 */
+    animation: dogRunLoop 12s linear infinite;
+  }
+</style>
+
+<div id="golden-retriever">
+  <img src="/img/mydog.gif" srcset="/img/loading.gif" lazyload style="width: 100%;">
+</div>
 
         </div>
       </div>
